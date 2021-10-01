@@ -1,3 +1,5 @@
+import KanbanAPI from '../api/KanbanAPI.js';
+
 export default class Column {
 	constructor(id, title) {
 		this.elements = {};
@@ -10,6 +12,16 @@ export default class Column {
 		);
 		this.elements.addItem =
 			this.elements.root.querySelector('.kanban__add-item');
+
+		this.elements.root.dataset.id = id;
+		this.elements.title.textContent = title;
+		/* identifying which id is target for dragging and dropping
+		yet which title is used for the structure */
+
+		this.elements.addItem.addEventListener('click', () => {
+			//TODO(has to function) : add item
+		});
+		KanbanAPI.getItems(id).forEach((item) => {});
 	}
 
 	static createRoot() {

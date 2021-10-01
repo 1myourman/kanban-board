@@ -9,7 +9,7 @@ export default class Kanban {
 			/*first need to have another module for individual instance of
             column class */
 			const columnView = new Column(column.id, column.title);
-
+			//this is quite advanced and abstract concept for me to check
 			this.root.appendChild(columnView.elements.root);
 		});
 	}
