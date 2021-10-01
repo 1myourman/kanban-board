@@ -1,1 +1,2 @@
-import KanbanAPI from './api/KanbanAPI';
+import Kanban from './view/Kanban.js';
+new Kanban(document.querySelector('.kanban'));

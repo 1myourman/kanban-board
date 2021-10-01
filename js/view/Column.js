@@ -1,5 +1,16 @@
 export default class Column {
-	constructor(id, title) {}
+	constructor(id, title) {
+		this.elements = {};
+		this.elements.root = Column.createRoot();
+		this.elements.title = this.elements.root.querySelector(
+			'.kanban__column-title'
+		);
+		this.elements.items = this.elements.root.querySelector(
+			'.kanban__column-items'
+		);
+		this.elements.addItem =
+			this.elements.root.querySelector('.kanban__add-item');
+	}
 
 	static createRoot() {
 		/* the goal of this function is that returning HTML
@@ -17,7 +28,7 @@ export default class Column {
 					<div class="kanban__dropzone"></div>
                 </div>
                 <button class="kanban__add-item" type="button">+ Add</button>
-			</div>
-        `).children[0];
+			</div> 
+        `).children[0]; //HTML object is virtual DOM
 	}
 }
