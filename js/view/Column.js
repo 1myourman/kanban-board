@@ -21,7 +21,9 @@ export default class Column {
 		this.elements.addItem.addEventListener('click', () => {
 			//TODO(has to function) : add item
 		});
-		KanbanAPI.getItems(id).forEach((item) => {});
+		KanbanAPI.getItems(id).forEach((item) => {
+			this.renderItem(item);
+		});
 	}
 
 	static createRoot() {
@@ -42,5 +44,8 @@ export default class Column {
                 <button class="kanban__add-item" type="button">+ Add</button>
 			</div> 
         `).children[0]; //HTML object is virtual DOM
+	}
+	renderItem(data) {
+		//TODO(has the responsibility of) : create the item instances
 	}
 }
