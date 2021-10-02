@@ -1,11 +1,11 @@
-import KanbanAPI from '../api/KanbanAPI.js';
+import KanbanAPI from "../api/KanbanAPI.js";
 
 export default class Item {
 	constructor(id, content) {
 		this.elements = {};
 		this.elements.root = Item.createRoot();
 		this.elements.input = this.elements.root.querySelector(
-			'.kanban__item-input'
+			".kanban__item-input"
 		);
 
 		this.elements.root.dataset.id = id;
@@ -26,16 +26,28 @@ export default class Item {
 				content: this.content,
 			});
 		};
-		this.elements.input.addEventListener('blur', onBlur);
-		this.elements.root.addEventListener('dblclick', () => {
-			const check = confirm('Do you want to delete the item?');
+		this.elements.input.addEventListener("blur", onBlur);
+		this.elements.root.addEventListener("dblclick", () => {
+			const check = confirm("Do you want to delete the item?");
 
 			if (check) {
 				KanbanAPI.deleteItem(id);
 
-				this.elements.input.removeEventListener('blur', onBlur);
+				this.elements.input.removeEventListener("blur", onBlur);
 				this.elements.root.parentElement.removeChild(this.elements.root);
 			}
+		});
+		this.elements.root.addEventListener("dragstart", (e) => {
+			/* How to interact between two HTML elements
+			when drag and drop events happen*/
+			e.dataTransfer.setData("text/plain", id);
+			/* with only this function, it is draggable but
+			combined with other item with an id only
+			preventDefault */
+		});
+
+		this.elements.input.addEventListener("drop", (e) => {
+			e.preventDefault();
 		});
 	}
 
