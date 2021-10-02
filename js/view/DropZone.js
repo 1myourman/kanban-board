@@ -40,10 +40,14 @@ export default class DropZone {
 			const droppedItem = document.querySelector(`[data-id="${itemId}"]`);
 			//data-id class is observable in console
 			const insertAfter = dropZone.parentElement.classList.contains(
-				".kanban__item"
+				"kanban__item"
 			)
 				? dropZone.parentElement
 				: dropZone;
+
+			if (droppedItem.contains(dropZone)) {
+				return;
+			} //prevents the bug
 
 			insertAfter.after(droppedItem);
 			KanbanAPI.updateItem(itemId, {
@@ -52,7 +56,7 @@ export default class DropZone {
 			});
 			/* It helps the item get added with drag and drop at the 
             localstorage, but not visible in UI immediately
-            without const */
+            without const insertAfter and after func*/
 		});
 
 		return dropZone;

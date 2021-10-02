@@ -15,6 +15,7 @@ export default class Item {
 		this.elements.input.textContent = content;
 		//as a reference for current content and when it is changed
 		this.content = content;
+		this.elements.root.appendChild(bottomDropZone);
 
 		//Let's give the user ability to update the item
 		const onBlur = () => {
