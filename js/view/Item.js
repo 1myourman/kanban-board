@@ -1,7 +1,10 @@
 import KanbanAPI from "../api/KanbanAPI.js";
+import DropZone from "./DropZone.js";
 
 export default class Item {
 	constructor(id, content) {
+		const bottomDropZone = DropZone.createDropZone();
+
 		this.elements = {};
 		this.elements.root = Item.createRoot();
 		this.elements.input = this.elements.root.querySelector(
@@ -57,7 +60,7 @@ export default class Item {
 
 		range.selectNode(document.body);
 
-		const dropZone = range.createContextualFragment(`
+		return range.createContextualFragment(`
         <div class='kanban__item' draggable="true">
             <div class='kanban__item-input' contenteditable></div>
         </div> 

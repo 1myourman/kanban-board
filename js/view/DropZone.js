@@ -16,6 +16,10 @@ export default class DropZone {
 			dropZone.classList.add("kanban__dragzone--active");
 		});
 
+		dropZone.addEventListener("dragleave", () => {
+			dropZone.classList.remove("kanban__dropzone--active");
+		});
+
 		return dropZone;
 	}
 }
