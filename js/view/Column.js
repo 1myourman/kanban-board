@@ -14,9 +14,8 @@ export default class Column {
 		this.elements.items = this.elements.root.querySelector(
 			".kanban__column-items"
 		);
-		this.elements.addItem = this.elements.root.querySelector(
-			".kanban__add-item"
-		);
+		this.elements.addItem =
+			this.elements.root.querySelector(".kanban__add-item");
 
 		this.elements.root.dataset.id = id;
 		this.elements.title.textContent = title;
@@ -47,12 +46,10 @@ export default class Column {
 		//this statement allows us to return below
 
 		return range.createContextualFragment(`
-        <div class="kanban__column">
-				<div class="kanban__column-title"></div>
-				<div class="kanban__column-items">
-					<div class="kanban__dropzone"></div>
-                </div>
-                <button class="kanban__add-item" type="button">+ Add</button>
+        	<div class="kanban__column">
+					<div class="kanban__column-title"></div>
+					<div class="kanban__column-items"></div>
+                	<button class="kanban__add-item" type="button">+ Add</button>
 			</div> 
         `).children[0]; //HTML object is virtual DOM
 	}

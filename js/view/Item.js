@@ -62,9 +62,9 @@ export default class Item {
 		range.selectNode(document.body);
 
 		return range.createContextualFragment(`
-        <div class='kanban__item' draggable="true">
-            <div class='kanban__item-input' contenteditable></div>
-        </div> 
+        		<div class='kanban__item' draggable="true">
+            			<div class='kanban__item-input' contenteditable></div>
+        		</div> 
         `).children[0]; //draggable attribute!
 	}
 }

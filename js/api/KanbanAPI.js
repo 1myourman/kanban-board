@@ -17,7 +17,7 @@ export default class KanbanAPI {
 		};
 
 		if (!column) {
-			throw new Error('Column is not here');
+			throw new Error("Column is not here");
 		}
 
 		column.items.push(item);
@@ -39,7 +39,7 @@ export default class KanbanAPI {
 		})(); //hold the function straight away parentheses
 
 		if (!item) {
-			throw new Error('Item is not found');
+			throw new Error("Item is not found");
 		}
 
 		item.content =
@@ -53,7 +53,7 @@ export default class KanbanAPI {
 			); //if it is true, we'll get the targetColumn
 
 			if (!targetColumn) {
-				throw new Error('Target column not found');
+				throw new Error("Target column not found");
 			}
 			//Delete the item from the current column
 			currentColumn.items.splice(currentColumn.items.indexOf(item), 1);
@@ -79,7 +79,7 @@ export default class KanbanAPI {
 }
 
 function read() {
-	const json = localStorage.getItem('kanban-data');
+	const json = localStorage.getItem("kanban-data");
 
 	if (!json) {
 		return [
@@ -101,5 +101,5 @@ function read() {
 }
 
 function save(data) {
-	localStorage.setItem('kanban-data', JSON.stringify(data));
+	localStorage.setItem("kanban-data", JSON.stringify(data));
 }

@@ -7,8 +7,7 @@ export default class DropZone {
 		range.selectNode(document.body);
 
 		const dropZone = range.createContextualFragment(`
-        <div class="kanban__dropzone">
-        </div> 
+        <div class="kanban__dropzone"></div> 
         `).children[0];
 
 		//give user an impression of it is draggable with css
@@ -24,7 +23,7 @@ export default class DropZone {
 		});
 
 		dropZone.addEventListener("drop", (e) => {
-			e.preventDefault;
+			e.preventDefault();
 			dropZone.classList.remove("kanban__dropzone--active");
 
 			const columnElement = dropZone.closest(".kanban__column");
